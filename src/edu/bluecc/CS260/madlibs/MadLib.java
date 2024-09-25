@@ -48,13 +48,4 @@ public class MadLib {
     this.parts = parts;
   }
 
-  public String getText() {
-    return text;
-  }
-
-  public String[] getParts() {
-    return parts;
-  }
-
-
 }
