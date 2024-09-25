@@ -29,6 +29,7 @@ public class MadLib {
     return words;
   }
 
+  
   private void play() {
     System.out.println("----- Welcome to Madlibs CS260 Edition ------");
     String[] words = getWords(parts);
