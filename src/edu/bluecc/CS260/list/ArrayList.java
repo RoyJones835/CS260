@@ -2,13 +2,43 @@ package edu.bluecc.CS260.list;
 
 public class ArrayList implements List{
 
-  // TODO Make sure I resize this array if it gets too full
   private String[] a = new String[1000];
   private int end = -1;
 
+  // Testing method
   public static void main(String[] args) {
     ArrayList l = new ArrayList();
     l.add("7");
+    l.add("x");
+    l.add("burrito");
+    System.out.println(l.get(0)); // 7
+    System.out.println(l.get(2)); // burrito
+    l.remove("burrito"); // 7, x
+    l.remove(0); // x
+    System.out.println(l.get(0)); // x
+    // System.out.println(l.get(1)); // Error
+    l.add("a");
+    l.add("b");
+    l.add("c"); // x, a, b, c
+    print(l);
+    l.add(1, "tomato");
+    print(l); // x, tomato, a, b, c
+    l.set(3,"carrots");
+    print(l); // x, tomato, a, carrots, c
+    System.out.println(l.find("a")); //2
+    System.out.println(l.find("parrot")); // -1
+    System.out.println(l.size()); // 5
+    l.clear();
+    print(l);
+    l.add("pizza");
+    print(l);
+  }
+
+  public static void print(ArrayList list) {
+    for (int i = 0; i < list.size(); i++) {
+      System.out.print(list.get(i)+" "); // x, tomato, a, b, c
+    }
+    System.out.println();
   }
 
   /**
