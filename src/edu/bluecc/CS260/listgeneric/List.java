@@ -1,6 +1,6 @@
-package edu.bluecc.CS260.list;
+package edu.bluecc.CS260.listgeneric;
 
-public interface List {
+public interface List<T> {
 
   /**
    * Adds the given value to the end of the list
@@ -9,7 +9,7 @@ public interface List {
    * @param val - value to be added
    * @return true if the value was added, false otherwise
    */
-  public boolean add(String val);
+  public boolean add(T val);
 
 
   /**
@@ -19,7 +19,7 @@ public interface List {
    * @param val - The value to be removed
    * @return true if the value was removed, false otherwise
    */
-  public boolean remove(String val);
+  public boolean remove(T val);
 
   /**
    * Removes the value at the given index from the list
@@ -29,7 +29,7 @@ public interface List {
    * @return the removed value
    * @throws IndexOutOfBoundsException index the index is invalid
    */
-  public String remove(int index);
+  public T remove(int index);
 
   /**
    * Inserts the given value at the given index
@@ -39,7 +39,7 @@ public interface List {
    * @param val - the value to insert
    * @throws IndexOutOfBoundsException if the index is invalid
    */
-  public void add(int index, String val);
+  public void add(int index, T val);
 
   /**
    * Replaces the value at the given index with the given value
@@ -50,7 +50,7 @@ public interface List {
    * @return the original value
    * @throws IndexOutOfBoundsException if the index is invalid
    */
-  public String set(int index, String val);
+  public T set(int index, T val);
 
   /**
    * Returns the value in the list at the given index
@@ -60,7 +60,7 @@ public interface List {
    * @return the value at the given index
    * @throws IndexOutOfBoundsException if the index is invalid
    */
-  public String get(int index);
+  public T get(int index);
 
   /**
    * Returns the index of the first occurrence of the given value, or -1 if not found
@@ -69,7 +69,7 @@ public interface List {
    * @param val - the search value
    * @return the index of the first occurrence of the given value, or -1 if not found
    */
-  public int find(String val);
+  public int find(T val);
 
   /**
    * Returns the number of elements in this list
