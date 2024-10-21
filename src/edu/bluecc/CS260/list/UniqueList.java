@@ -14,9 +14,10 @@ public class UniqueList implements List {
     // list.add("A");
     // list.add(1, "Q");
     // list.set(0,"Q");
+    print(list);
 
   }
-  public static void print(ArrayList list) {
+  public static void print(List list) {
     for (int i = 0; i < list.size(); i++) {
       System.out.print(list.get(i)+" "); // x, tomato, a, b, c
     }
@@ -36,7 +37,7 @@ public class UniqueList implements List {
   @Override
   public boolean add(String val) {
     if (find(val) >= 0)
-      throw new IllegalArgumentException(String.format("Value '%s' is already in the list. This list accepts unique values only", val));
+      return false;
 
     if(end > 0.8*a.length) {
       a = Arrays.copyOf(a, (int)(1.5*a.length));

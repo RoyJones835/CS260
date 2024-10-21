@@ -177,7 +177,6 @@ public class LinkedList implements List{
       for (int i = 0; i < index-1; i++)
         n = n.getNext();
       value = n.getNext().getValue();
-
       Node node = new Node(val);
       node.setNext(n.getNext().getNext());
       n.setNext(node);

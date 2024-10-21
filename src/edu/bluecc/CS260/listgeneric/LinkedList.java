@@ -1,6 +1,10 @@
 package edu.bluecc.CS260.listgeneric;
 
-public interface List<T> {
+public class LinkedList<T> implements List<T> {
+
+  private Node<T> start;
+  private Node<T> end;
+  private int size = 0;
 
   /**
    * Adds the given value to the end of the list
@@ -9,7 +13,17 @@ public interface List<T> {
    * @param val - value to be added
    * @return true if the value was added, false otherwise
    */
-  public boolean add(T val);
+  @Override
+  public boolean add(T val) {
+    Node<T> node = new Node<>(val);
+    if (end == null)
+      start = node;
+    else
+      end.setNext(node);
+    end = node;
+    size++;
+    return true;
+  }
 
   /**
    * Removes the first occurrence of the given value from the list
@@ -18,7 +32,10 @@ public interface List<T> {
    * @param val - The value to be removed
    * @return true if the value was removed, false otherwise
    */
-  public boolean remove(T val);
+  @Override
+  public boolean remove(T val) {
+    return false;
+  }
 
   /**
    * Removes the value at the given index from the list
@@ -28,28 +45,37 @@ public interface List<T> {
    * @return the removed value
    * @throws IndexOutOfBoundsException index the index is invalid
    */
-  public T remove(int index);
+  @Override
+  public T remove(int index) {
+    return null;
+  }
 
   /**
    * Inserts the given value at the given index
    * ADT list: INSERT(p,v)
    *
    * @param index - the index of where to insert the value
-   * @param val - the value to insert
+   * @param val   - the value to insert
    * @throws IndexOutOfBoundsException if the index is invalid
    */
-  public void add(int index, T val);
+  @Override
+  public void add(int index, T val) {
+
+  }
 
   /**
    * Replaces the value at the given index with the given value
    * ADT List: REPLACE(p,v) -> v
    *
    * @param index - the index of the value to replace
-   * @param val - the replacement value
+   * @param val   - the replacement value
    * @return the original value
    * @throws IndexOutOfBoundsException if the index is invalid
    */
-  public T set(int index, T val);
+  @Override
+  public T set(int index, T val) {
+    return null;
+  }
 
   /**
    * Returns the value in the list at the given index
@@ -59,7 +85,10 @@ public interface List<T> {
    * @return the value at the given index
    * @throws IndexOutOfBoundsException if the index is invalid
    */
-  public T get(int index);
+  @Override
+  public T get(int index) {
+    return null;
+  }
 
   /**
    * Returns the index of the first occurrence of the given value, or -1 if not found
@@ -68,7 +97,16 @@ public interface List<T> {
    * @param val - the search value
    * @return the index of the first occurrence of the given value, or -1 if not found
    */
-  public int find(T val);
+  @Override
+  public int find(T val) {
+    Node<T> node = start;
+    for (int i =0; i < size; i++) {
+      if (val.equals(node.getValue()))
+        return i;
+      node = node.getNext();
+    }
+    return -1;
+  }
 
   /**
    * Returns the number of elements in this list
@@ -76,13 +114,17 @@ public interface List<T> {
    *
    * @return the number of elements in this list
    */
-  public int size();
+  @Override
+  public int size() {
+    return 0;
+  }
 
   /**
    * Removes all elements from this list
    * ADT List: DELETE_ALL()
    */
-  public void clear();
+  @Override
+  public void clear() {
 
-
+  }
 }
