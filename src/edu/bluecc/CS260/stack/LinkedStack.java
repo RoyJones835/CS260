@@ -18,9 +18,13 @@ public class LinkedStack<E> implements Stack<E> {
    *
    * @param value - the value to be pushed onto the stack
    * @return the value
+   * @throws IllegalArgumentException if the value is null
    */
   @Override
   public E push(E value) {
+    if (value == null)
+      throw new IllegalArgumentException("cannot push a null value");
+
     Node<E> node = new Node<>(value);
     node.setNext(top);
     top = node;

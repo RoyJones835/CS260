@@ -20,9 +20,13 @@ public class ArrayStack<E> implements Stack<E> {
    *
    * @param value - the value to be pushed onto the stack
    * @return the value
+   * @throws IllegalArgumentException if the value is null
    */
   @Override
   public E push(E value) {
+    if (value == null)
+      throw new IllegalArgumentException("cannot push a null value");
+
     // resize the array if needed
     if(top > 0.8*a.length) {
       E[] b = (E[])(new Object[(int)(1.5 * a.length)]);
