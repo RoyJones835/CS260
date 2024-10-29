@@ -188,8 +188,7 @@ public class ArrayList implements List{
    */
   @Override
   public void clear() {
-    String[] b = new String[a.length];
-    a=b;
+    a = new String[1000];
     end=-1;
   }
 }
