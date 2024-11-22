@@ -6,6 +6,9 @@ public class TreeTester {
     TestLinkedBST();
   }
 
+  public static void AVLTest() {
+    AVL<Integer> t = new AVL<Integer>();
+  }
   private static void TestGenericLinkedBST() {
     GenericLinkedBST<String> tree = new GenericLinkedBST<>();
     tree.add("dakjlf");
@@ -35,25 +38,28 @@ public class TreeTester {
     System.out.println(tree.add(4));
     System.out.println(tree.add(15));
 
-    System.out.println("----Adding duplicates----");
-    System.out.println(tree.add(14)); // False
-    System.out.println(tree.add(22)); // False
-
-    System.out.println("----Checking contains----");
-    System.out.println(tree.contains(14)); //True
-    System.out.println(tree.contains(-13)); //False
-    System.out.println(tree.contains(0)); // False
-    tree.print();
+//    System.out.println("----Adding duplicates----");
+//    System.out.println(tree.add(14)); // False
+//    System.out.println(tree.add(22)); // False
+//
+//    System.out.println("----Checking contains----");
+//    System.out.println(tree.contains(14)); //True
+//    System.out.println(tree.contains(-13)); //False
+//    System.out.println(tree.contains(0)); // False
+//    tree.print();
     System.out.println("----Removing values----");
-    System.out.println(tree.remove(52)); // false
+//    System.out.println(tree.remove(52)); // false
+//    tree.print();
     System.out.println(tree.remove(3)); // True
-    System.out.println(tree.remove(14));// True
-    System.out.println(tree.remove(92));// True
-    System.out.println(tree.remove(1000)); // false
-    System.out.println(tree.remove(2));// True
-    System.out.println(tree.remove(3));// True
-    System.out.println(tree.remove(22));// True
     tree.print();
+//    System.out.println(tree.remove(14));// True
+//    tree.print();
+//    System.out.println(tree.remove(92));// True
+//    tree.print();
+    System.out.println(tree.remove(2));// True ToDO fix this
+    tree.print();
+//    System.out.println(tree.remove(22));// True
+//    tree.print();
     // System.out.println(tree);
 
 

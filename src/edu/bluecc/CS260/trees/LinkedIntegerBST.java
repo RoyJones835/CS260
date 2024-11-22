@@ -51,8 +51,8 @@ public class LinkedIntegerBST implements BinarySearchTree<Integer> {
       }
       return add(value,node.getRight()); //go right
     }
-
   }
+
 
   /**
    * Remove a value from this tree
@@ -77,9 +77,12 @@ public class LinkedIntegerBST implements BinarySearchTree<Integer> {
       replace(node,node.getLeft());
       return true;
     } else {
-      Node<Integer> min = min(node.getRight());
+      Node<Integer> min = node.getRight();
+      while(min.getLeft() != null)
+        min = min.getLeft();
       min.setLeft(node.getLeft());
-      node.setLeft(null);
+      node.getLeft().setParent(min); // Do not forget this step when rerouting pointers
+      node.setLeft(null); // might be redundant
       replace(node,node.getRight());
       return true;
     }
@@ -89,7 +92,8 @@ public class LinkedIntegerBST implements BinarySearchTree<Integer> {
     if (n1.getParent() == null) {
       // n1 is the root node
       root = n2;
-      n2.setParent(null);
+      if (n2 != null)
+        n2.setParent(null);
       return;
     }
     Node<Integer> parent = n1.getParent();
@@ -102,18 +106,7 @@ public class LinkedIntegerBST implements BinarySearchTree<Integer> {
       n2.setParent(parent);
   }
 
-  /**
-   *
-   * @return the minimum value node of the subtree. this node will always be found by repeatably going left
-   */
-  private Node<Integer> min(Node<Integer> node) {
-    if (node == null)
-      throw new IllegalArgumentException("cannot find the minimum of a null pointer");
-    if (node.getLeft() == null)
-      return node;
-    else
-      return min(node.getLeft());
-  }
+
 
   /**
    * Returns true if this tree contains the specified element.
