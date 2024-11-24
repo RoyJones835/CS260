@@ -12,7 +12,10 @@ public class Node<E> {
     this.value = value;
   }
 
-  // TODO add constructor that takes parent as an argument
+  public Node(E value, Node<E> parent) {
+    this.value = value;
+    this.parent = parent;
+  }
 
   public Node<E> getLeft() {
     return left;
@@ -43,7 +46,7 @@ public class Node<E> {
   }
 
   public void updateHeight() {
-    height = Math.max(height(left),height(right));
+    height = Math.max(height(left),height(right))+1;
   }
 
   private static <E> int height (Node<E> node) {
@@ -54,5 +57,9 @@ public class Node<E> {
     return height(right) - height(left);
   }
 
-  // TODO add tostring method that displays the value, height and balance factor
+  // tostring method that displays the value, height and balance factor
+  @Override
+  public String toString() {
+    return String.format("%s:%d|%d", value.toString(), height, balanceFactor());
+  }
 }

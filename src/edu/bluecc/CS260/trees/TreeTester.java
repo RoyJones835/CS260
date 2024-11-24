@@ -3,12 +3,51 @@ package edu.bluecc.CS260.trees;
 public class TreeTester {
 
   public static void main(String[] args) {
-    TestLinkedBST();
+    TestArrayBST();
   }
 
   public static void AVLTest() {
     AVL<Integer> t = new AVL<Integer>();
+    t.add(14);
+    t.print();
+    t.add(22);
+    t.print();
+    t.add(92);
+    t.print();
+    t.add(63);
+    t.print();
+    t.add(3);
+    t.print();
+    t.add(2);
+    t.print();
+    t.add(4);
+    t.print();
+    t.add(15);
+    t.print();
+    t.add(17);
+    t.print();
   }
+
+  public static void TestArrayBST() {
+    ArrayBST t = new ArrayBST();
+    t.add(14);
+    System.out.println(t); // testing toString
+    t.add(22);
+    System.out.println(t);
+    t.add(92);
+    System.out.println(t);
+    t.add(63);
+    System.out.println(t);
+    t.add(3);
+    System.out.println(t);
+    t.add(2);
+    System.out.println(t);
+    t.add(4);
+    System.out.println(t);
+    t.add(15);
+    System.out.println(t);
+  }
+
   private static void TestGenericLinkedBST() {
     GenericLinkedBST<String> tree = new GenericLinkedBST<>();
     tree.add("dakjlf");
@@ -56,7 +95,7 @@ public class TreeTester {
 //    tree.print();
 //    System.out.println(tree.remove(92));// True
 //    tree.print();
-    System.out.println(tree.remove(2));// True ToDO fix this
+    System.out.println(tree.remove(2));// True
     tree.print();
 //    System.out.println(tree.remove(22));// True
 //    tree.print();

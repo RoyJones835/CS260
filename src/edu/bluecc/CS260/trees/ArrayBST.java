@@ -120,4 +120,17 @@ public class ArrayBST implements BinarySearchTree<Integer> {
     RVL(2*index+1);
   }
 
+  @Override
+  public String toString() {
+      return toString(0);
+  }
+
+  private String toString(int index) {
+    if(a[index] == null)
+      return "";
+    else {
+      return toString(2*index+1) + a[index]  + " " + toString(2*index+2);
+    }
+  }
+
 }
