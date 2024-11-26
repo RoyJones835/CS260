@@ -1,6 +1,6 @@
 package edu.bluecc.CS260.trees;
 
-public class AVL<E extends Comparable<E>> implements BinarySearchTree<E> {
+public class LinkedAVLTree<E extends Comparable<E>> implements BinarySearchTree<E> {
 
   private Node<E> root;
 
@@ -67,24 +67,24 @@ public class AVL<E extends Comparable<E>> implements BinarySearchTree<E> {
     if (node.balanceFactor() == 2) {
       if (node.getRight().balanceFactor() >= 0) {
         // RR
-        rotateLeft(node.getRight(), node); // this line
+        rotateLeft(node, node.getRight());
       } else {
         // RL
         Node<E> a = node.getRight();
         Node<E> b = a.getLeft();
-        rotateRight(b,a);
-        rotateLeft(b,node);
+        rotateRight(a,b);
+        rotateLeft(node,b);
       }
     } else {
       if (node.getLeft().balanceFactor() <= 0) {
         // LL
-        rotateRight(node.getLeft(), node);
+        rotateRight(node, node.getLeft());
       } else {
         // LR
         Node<E> a = node.getLeft();
         Node<E> b = a.getRight();
-        rotateLeft(b,a);
-        rotateRight(b,node);
+        rotateLeft(a,b);
+        rotateRight(node,b);
       }
     }
   }
@@ -178,9 +178,7 @@ public class AVL<E extends Comparable<E>> implements BinarySearchTree<E> {
     }
   }
 
-  // NOTE: swapped argument order, updated height after rotation
-  private void rotateLeft(Node<E> node2, Node<E> node1) {
-    // TODO fix rotate left and right
+  private void rotateLeft(Node<E> node1, Node<E> node2) {
     node1.setRight(node2.getLeft());
     if(node1.getRight() != null)
       node1.getRight().setParent(node1);
@@ -192,7 +190,7 @@ public class AVL<E extends Comparable<E>> implements BinarySearchTree<E> {
     node2.updateHeight();
   }
 
-  private void rotateRight(Node<E> node2, Node<E> node1) {
+  private void rotateRight(Node<E> node1, Node<E> node2) {
     node1.setLeft(node2.getRight());
     if(node1.getLeft() != null)
       node1.getLeft().setParent(node1);

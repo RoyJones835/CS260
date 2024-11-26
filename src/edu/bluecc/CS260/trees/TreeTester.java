@@ -3,11 +3,11 @@ package edu.bluecc.CS260.trees;
 public class TreeTester {
 
   public static void main(String[] args) {
-    TestArrayBST();
+    LinkedAVLTreeTest();
   }
 
-  public static void AVLTest() {
-    AVL<Integer> t = new AVL<Integer>();
+  public static void LinkedAVLTreeTest() {
+    LinkedAVLTree<Integer> t = new LinkedAVLTree<Integer>();
     t.add(14);
     t.print();
     t.add(22);
